@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+
+import 'package:kost_apps/models/tips_model.dart';
 import 'package:kost_apps/utils/shared.dart';
 
 class TipsGuidance extends StatelessWidget {
-  const TipsGuidance({Key? key}) : super(key: key);
+  final Tips tips;
+  const TipsGuidance({
+    Key? key,
+    required this.tips,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +18,7 @@ class TipsGuidance extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            tips1,
+            tips.imageUrl,
             width: 80,
           ),
           const SizedBox(
@@ -22,14 +28,14 @@ class TipsGuidance extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'City Guidelines',
+                tips.title,
                 style: fontBold.copyWith(fontSize: 18),
               ),
               const SizedBox(
                 height: 4,
               ),
               Text(
-                'Updated 20 Apr',
+                tips.createdAt,
                 style: fontLight.copyWith(fontSize: 15, color: greyColor2),
               )
             ],

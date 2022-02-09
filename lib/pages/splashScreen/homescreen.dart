@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kost_apps/models/city_model.dart';
 import 'package:kost_apps/models/recommended_space.dart';
+import 'package:kost_apps/models/tips_model.dart';
 import 'package:kost_apps/utils/shared.dart';
 import 'package:kost_apps/widgets/city_card.dart';
 import 'package:kost_apps/widgets/recommendedcard.dart';
@@ -146,11 +147,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Column(
                       children: [
-                        TipsGuidance(),
-                        SizedBox(height: 20),
-                        TipsGuidance()
+                        TipsGuidance(
+                          tips: Tips(
+                              id: 1,
+                              title: 'City Guidelines',
+                              imageUrl: tips1,
+                              createdAt: 'Updated 20 Apr'),
+                        ),
+                        const SizedBox(height: 20),
+                        TipsGuidance(
+                          tips: Tips(
+                              id: 2,
+                              title: 'Jakarta Fairship',
+                              imageUrl: tips2,
+                              createdAt: 'Updated 11 Dec'),
+                        )
                       ],
                     ),
+                  ),
+                  const SizedBox(
+                    height: 50,
                   )
                 ],
               ))),
