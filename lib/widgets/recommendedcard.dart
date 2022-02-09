@@ -4,9 +4,9 @@ import 'package:kost_apps/models/recommended_space.dart';
 import 'package:kost_apps/utils/shared.dart';
 
 class CardRecommended extends StatelessWidget {
-  Recommended space;
+  final Recommended space;
 
-  CardRecommended({
+  const CardRecommended({
     Key? key,
     required this.space,
   }) : super(key: key);
@@ -26,7 +26,7 @@ class CardRecommended extends StatelessWidget {
               height: 110,
               child: Stack(
                 children: [
-                  Image.asset(space.image_url),
+                  Image.asset(space.imageUrl),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(

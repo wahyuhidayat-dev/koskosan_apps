@@ -6,7 +6,7 @@ class Recommended {
   String city;
   String country;
   int price;
-  String image_url;
+  String imageUrl;
   int rating;
   Recommended({
     required this.id,
@@ -14,7 +14,7 @@ class Recommended {
     required this.city,
     required this.country,
     required this.price,
-    required this.image_url,
+    required this.imageUrl,
     required this.rating,
   });
 
@@ -24,7 +24,7 @@ class Recommended {
     String? city,
     String? country,
     int? price,
-    String? image_url,
+    String? imageUrl,
     int? rating,
   }) {
     return Recommended(
@@ -33,7 +33,7 @@ class Recommended {
       city: city ?? this.city,
       country: country ?? this.country,
       price: price ?? this.price,
-      image_url: image_url ?? this.image_url,
+      imageUrl: imageUrl ?? this.imageUrl,
       rating: rating ?? this.rating,
     );
   }
@@ -45,7 +45,7 @@ class Recommended {
       'city': city,
       'country': country,
       'price': price,
-      'image_url': image_url,
+      'image_url': imageUrl,
       'rating': rating,
     };
   }
@@ -57,7 +57,7 @@ class Recommended {
       city: map['city'] ?? '',
       country: map['country'] ?? '',
       price: map['price']?.toInt() ?? 0,
-      image_url: map['image_url'] ?? '',
+      imageUrl: map['imageUrl'] ?? '',
       rating: map['rating']?.toInt() ?? 0,
     );
   }

@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               city: 'Bandung',
                               country: 'Indonesia',
                               price: 52,
-                              image_url: city4,
+                              imageUrl: city4,
                               rating: 4),
                         ),
                         const SizedBox(
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               city: 'Bogor',
                               country: 'Indonesia',
                               price: 11,
-                              image_url: city5,
+                              imageUrl: city5,
                               rating: 5),
                         ),
                         const SizedBox(
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               city: 'Jakarta',
                               country: 'Indonesia',
                               price: 20,
-                              image_url: city6,
+                              imageUrl: city6,
                               rating: 4),
                         ),
                         const SizedBox(
