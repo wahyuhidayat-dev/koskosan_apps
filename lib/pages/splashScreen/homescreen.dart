@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kost_apps/models/city_model.dart';
 import 'package:kost_apps/models/recommended_space.dart';
@@ -15,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _page = 0;
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -167,9 +170,39 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(
                     height: 50,
-                  )
+                  ),
                 ],
               ))),
+      bottomNavigationBar: CurvedNavigationBar(
+        key: _bottomNavigationKey,
+        items: [
+          Icon(
+            Icons.home,
+            color: white,
+          ),
+          Icon(
+            Icons.mail,
+            color: white,
+          ),
+          Icon(
+            Icons.credit_card,
+            color: white,
+          ),
+          Icon(
+            Icons.favorite,
+            color: white,
+          ),
+        ],
+        color: purpleColor2,
+        backgroundColor: Colors.transparent,
+        buttonBackgroundColor: purpleColor2,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 600),
+        onTap: (index) {
+          _page = index;
+        },
+        letIndexChange: (index) => true,
+      ),
     );
   }
 }
