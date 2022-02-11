@@ -40,3 +40,11 @@ String tips2 = "assets/images/tips2.png";
 
 //? Star Icon
 String star = "assets/images/icon_star.png";
+String icHome = "assets/images/icon_home.png";
+String icHomesolid = "assets/images/Icon_home_solid.png";
+String icMail = "assets/images/Icon_mail.png";
+String icMailsolid = "assets/images/Icon_mail_solid.png";
+String icCard = "assets/images/icon_card.png";
+String icCardsolid = "assets/images/Icon_card_solid.png";
+String icLove = "assets/images/icon_love.png";
+String icLovesolid = "assets/images/Icon_love_solid.png";

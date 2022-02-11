@@ -4,6 +4,7 @@ import 'package:kost_apps/models/city_model.dart';
 import 'package:kost_apps/models/recommended_space.dart';
 import 'package:kost_apps/models/tips_model.dart';
 import 'package:kost_apps/utils/shared.dart';
+import 'package:kost_apps/widgets/bottom_navbar.dart';
 import 'package:kost_apps/widgets/city_card.dart';
 import 'package:kost_apps/widgets/recommendedcard.dart';
 import 'package:kost_apps/widgets/tips_card.dart';
@@ -169,39 +170,35 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 100,
                   ),
                 ],
               ))),
-      bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
-        items: [
-          Icon(
-            Icons.home,
-            color: white,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 32),
+        child: Container(
+          height: 65,
+          width: MediaQuery.of(context).size.width - 32,
+          decoration: BoxDecoration(
+              color: greyColor1, borderRadius: BorderRadius.circular(23)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BottomNavBar(
+                imageUrl: icHomesolid,
+              ),
+              BottomNavBar(
+                imageUrl: icCard,
+              ),
+              BottomNavBar(
+                imageUrl: icMail,
+              ),
+              BottomNavBar(
+                imageUrl: icLove,
+              )
+            ],
           ),
-          Icon(
-            Icons.mail,
-            color: white,
-          ),
-          Icon(
-            Icons.credit_card,
-            color: white,
-          ),
-          Icon(
-            Icons.favorite,
-            color: white,
-          ),
-        ],
-        color: purpleColor2,
-        backgroundColor: Colors.transparent,
-        buttonBackgroundColor: purpleColor2,
-        animationCurve: Curves.easeInOut,
-        animationDuration: const Duration(milliseconds: 600),
-        onTap: (index) {
-          _page = index;
-        },
-        letIndexChange: (index) => true,
+        ),
       ),
     );
   }
