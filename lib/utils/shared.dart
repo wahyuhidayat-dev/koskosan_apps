@@ -38,8 +38,18 @@ String city6 = "assets/images/city6.png";
 String tips1 = "assets/images/tips1.png";
 String tips2 = "assets/images/tips2.png";
 
+//? thumnail detail page
+String thum = "assets/images/thumbnail.png";
+
+//? button image
+String btnBack = "assets/images/btn_back.png";
+String btnMap = "assets/images/btn_map.png";
+String btnWishlist = "assets/images/btn_wishlist.png";
+String btnWishlistActive = "assets/images/btn_wishlist_active.png";
+
 //? Star Icon
 String star = "assets/images/icon_star.png";
+String starGrey = "assets/images/icon_star_grey.png";
 String icHome = "assets/images/icon_home.png";
 String icHomesolid = "assets/images/Icon_home_solid.png";
 String icMail = "assets/images/Icon_mail.png";
@@ -48,3 +58,16 @@ String icCard = "assets/images/icon_card.png";
 String icCardsolid = "assets/images/Icon_card_solid.png";
 String icLove = "assets/images/icon_love.png";
 String icLovesolid = "assets/images/Icon_love_solid.png";
+
+//? Margin
+double edge = 24;
+
+//?  icon facilities
+
+String kitchen = "assets/images/001-bar-counter.png";
+String bedroom = "assets/images/002-double-bed.png";
+String lemari = "assets/images/003-cupboard.png";
+
+String photos1 = "assets/images/space1.png";
+String photos2 = "assets/images/space2.png";
+String photos3 = "assets/images/space3.png";
