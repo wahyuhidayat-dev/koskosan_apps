@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kost_apps/utils/shared.dart';
 import 'package:kost_apps/widgets/facilities_card.dart';
+import 'package:kost_apps/widgets/photos_card.dart';
 
 class DetailPages extends StatelessWidget {
   const DetailPages({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
           children: [
             Image.asset(
               thum,
@@ -125,6 +126,7 @@ class DetailPages extends StatelessWidget {
                   child: Text('Main Facilities',
                       style: fontMedium.copyWith(fontSize: 16)),
                 ),
+
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: edge),
                   child: Row(
@@ -151,36 +153,15 @@ class DetailPages extends StatelessWidget {
                       const SizedBox(
                         width: 18,
                       ),
-                      Container(
-                        width: 110,
-                        height: 88,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                                image: AssetImage(photos1), fit: BoxFit.cover)),
-                      ),
+                      Photos(imageUrl: photos1),
                       const SizedBox(
                         width: 18,
                       ),
-                      Container(
-                        width: 110,
-                        height: 88,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                                image: AssetImage(photos2), fit: BoxFit.cover)),
-                      ),
+                      Photos(imageUrl: photos2),
                       const SizedBox(
                         width: 18,
                       ),
-                      Container(
-                        width: 110,
-                        height: 88,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                                image: AssetImage(photos3), fit: BoxFit.cover)),
-                      ),
+                      Photos(imageUrl: photos3),
                       const SizedBox(
                         width: 18,
                       ),
@@ -189,20 +170,35 @@ class DetailPages extends StatelessWidget {
                 ),
                 //! LOCATION
                 Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: edge, vertical: edge),
-                  child: Text('Location',
-                      style: fontMedium.copyWith(fontSize: 16)),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Jln. Kappan Sukses No. 20',
-                      style:
-                          fontMedium.copyWith(fontSize: 14, color: greyColor2),
-                    )
-                  ],
-                )
+                    padding:
+                        EdgeInsets.symmetric(horizontal: edge, vertical: edge),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Location',
+                                style: fontMedium.copyWith(fontSize: 16)),
+                            Text(
+                              'Jln. Kappan Sukses No. 20',
+                              style: fontMedium.copyWith(
+                                  fontSize: 14, color: greyColor2),
+                            )
+                          ],
+                        ),
+                        Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: greyColor1),
+                            child: Icon(
+                              Icons.location_on,
+                              color: greyColor2,
+                            ))
+                      ],
+                    )),
               ],
             )
           ],
