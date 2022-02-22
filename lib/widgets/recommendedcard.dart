@@ -17,7 +17,7 @@ class CardRecommended extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailPages()));
+            context, MaterialPageRoute(builder: (context) => const DetailPages()));
       },
       child: Container(
         height: 110,

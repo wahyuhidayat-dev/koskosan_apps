@@ -9,6 +9,7 @@ class DetailPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -120,50 +121,68 @@ class DetailPages extends StatelessWidget {
                   ),
                 ),
                 //! MAIN FACILITIES
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: edge, vertical: edge),
-                  child: Text('Main Facilities',
-                      style: fontMedium.copyWith(fontSize: 16)),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: edge),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(
+                  color: white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Facilities(name: 'kitchen', imageUrl: kitchen, total: 2),
-                      Facilities(name: 'lemari', imageUrl: lemari, total: 3),
-                      Facilities(name: 'bedroom', imageUrl: bedroom, total: 2),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: edge, vertical: edge),
+                        child: Text('Main Facilities',
+                            style: fontMedium.copyWith(fontSize: 16)),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: edge),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Facilities(
+                                name: 'kitchen', imageUrl: kitchen, total: 2),
+                            Facilities(
+                                name: 'lemari', imageUrl: lemari, total: 3),
+                            Facilities(
+                                name: 'bedroom', imageUrl: bedroom, total: 2),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 //! PHOTOS
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: edge, vertical: edge),
-                  child:
-                      Text('Photos', style: fontMedium.copyWith(fontSize: 16)),
-                ),
-                SizedBox(
-                  height: 110,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
+                Container(
+                  color: white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        width: 18,
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: edge, vertical: edge),
+                        child: Text('Photos',
+                            style: fontMedium.copyWith(fontSize: 16)),
                       ),
-                      Photos(imageUrl: photos1),
-                      const SizedBox(
-                        width: 18,
-                      ),
-                      Photos(imageUrl: photos2),
-                      const SizedBox(
-                        width: 18,
-                      ),
-                      Photos(imageUrl: photos3),
-                      const SizedBox(
-                        width: 18,
+                      SizedBox(
+                        height: 110,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            const SizedBox(
+                              width: 18,
+                            ),
+                            Photos(imageUrl: photos1),
+                            const SizedBox(
+                              width: 18,
+                            ),
+                            Photos(imageUrl: photos2),
+                            const SizedBox(
+                              width: 18,
+                            ),
+                            Photos(imageUrl: photos3),
+                            const SizedBox(
+                              width: 18,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -193,12 +212,36 @@ class DetailPages extends StatelessWidget {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: greyColor1),
-                            child: Icon(
-                              Icons.location_on,
-                              color: greyColor2,
+                            child: InkWell(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.location_on,
+                                color: greyColor2,
+                              ),
                             ))
                       ],
                     )),
+                //! BUTTON
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: edge),
+                  height: 50,
+                  width: MediaQuery.of(context).size.width - (2 * edge),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: purpleColor1),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Center(
+                      child: Text(
+                        'Book Now',
+                        style: fontMedium.copyWith(color: white, fontSize: 18),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                )
               ],
             )
           ],
