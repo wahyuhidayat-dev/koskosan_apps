@@ -71,3 +71,6 @@ String lemari = "assets/images/003-cupboard.png";
 String photos1 = "assets/images/space1.png";
 String photos2 = "assets/images/space2.png";
 String photos3 = "assets/images/space3.png";
+
+//? error page
+String error = "assets/images/404.png";

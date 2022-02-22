@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kost_apps/utils/shared.dart';
 
+// ignore: must_be_immutable
 class Facilities extends StatelessWidget {
   String name;
   String imageUrl;

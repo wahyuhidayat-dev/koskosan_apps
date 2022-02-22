@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kost_apps/pages/splashScreen/homescreen.dart';
+
 import 'package:kost_apps/utils/shared.dart';
+
+import 'homescreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

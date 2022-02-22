@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kost_apps/models/city_model.dart';
 import 'package:kost_apps/models/recommended_space.dart';
 import 'package:kost_apps/models/tips_model.dart';
+import 'package:kost_apps/provider/space_provider.dart';
 import 'package:kost_apps/utils/shared.dart';
 import 'package:kost_apps/widgets/bottom_navbar.dart';
 import 'package:kost_apps/widgets/city_card.dart';
 import 'package:kost_apps/widgets/recommendedcard.dart';
 import 'package:kost_apps/widgets/tips_card.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +20,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    //! from Provider
+    var spaceProvider = Provider.of<SpaceProvider>(context);
+
     return Scaffold(
         backgroundColor: backgroudColor,
         body: SafeArea(
@@ -94,51 +99,30 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: fontMedium.copyWith(fontSize: 16)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: Column(
-                        children: [
-                          CardRecommended(
-                            space: Recommended(
-                                id: 1,
-                                name: 'Kuretakeso Hott',
-                                city: 'Bandung',
-                                country: 'Indonesia',
-                                price: 52,
-                                imageUrl: city4,
-                                rating: 4),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          CardRecommended(
-                            space: Recommended(
-                                id: 2,
-                                name: 'Roemah Nenek',
-                                city: 'Bogor',
-                                country: 'Indonesia',
-                                price: 11,
-                                imageUrl: city5,
-                                rating: 5),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          CardRecommended(
-                            space: Recommended(
-                                id: 3,
-                                name: 'Darrling How',
-                                city: 'Jakarta',
-                                country: 'Indonesia',
-                                price: 20,
-                                imageUrl: city6,
-                                rating: 4),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                    ),
+                        padding: EdgeInsets.symmetric(horizontal: edge),
+                        child: FutureBuilder(
+                          future: spaceProvider.getRecommendedSpace(),
+                          builder:
+                              (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasData) {
+                              List<Recommended> data = snapshot.data;
+                              int index = 0;
+                              Column(
+                                children: data.map((item) {
+                                  index++;
+                                  return Container(
+                                    margin: EdgeInsets.only(
+                                        top: index == 1 ? 0 : 20),
+                                    child: CardRecommended(space: item),
+                                  );
+                                }).toList(),
+                              );
+                            }
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          },
+                        )),
                     Padding(
                       padding: const EdgeInsets.only(left: 24, bottom: 24),
                       child: Text('Tips & Guidance',

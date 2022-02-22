@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:kost_apps/pages/error_dart.dart';
 import 'package:kost_apps/utils/shared.dart';
 import 'package:kost_apps/widgets/facilities_card.dart';
 import 'package:kost_apps/widgets/photos_card.dart';
 
 class DetailPages extends StatelessWidget {
-  const DetailPages({Key? key}) : super(key: key);
+  const DetailPages({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    launchUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        //throw (url);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ErrorPage()));
+      }
+    }
+
     return Scaffold(
       backgroundColor: white,
       body: SafeArea(
@@ -213,7 +228,10 @@ class DetailPages extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                                 color: greyColor1),
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                launchUrl(
+                                    "https://www.google.co.id/maps/@-5.230236,119.5014263,792m/data=!3m1!1e3?hl=id");
+                              },
                               child: Icon(
                                 Icons.location_on,
                                 color: greyColor2,
@@ -221,7 +239,7 @@ class DetailPages extends StatelessWidget {
                             ))
                       ],
                     )),
-                //! BUTTON
+                //! BUTTON BOOK NOW
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: edge),
                   height: 50,
@@ -230,7 +248,9 @@ class DetailPages extends StatelessWidget {
                       borderRadius: BorderRadius.circular(17),
                       color: purpleColor1),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrl('tel:+6281295700877');
+                    },
                     child: Center(
                       child: Text(
                         'Book Now',

@@ -16,8 +16,8 @@ class CardRecommended extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const DetailPages()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const DetailPages()));
       },
       child: Container(
         height: 110,
@@ -32,7 +32,11 @@ class CardRecommended extends StatelessWidget {
                 height: 110,
                 child: Stack(
                   children: [
-                    Image.asset(space.imageUrl),
+                    Image.network(
+                      space.image_url,
+                      width: 130,
+                      height: 110,
+                    ),
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
